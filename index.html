@@ -205,6 +205,48 @@
   .cta-banner--alt p{color:rgba(251,251,248,.86);}
   .cta-banner--alt .btn-primary{background:var(--surface);color:var(--accent);}
   .cta-banner--alt .btn-primary:hover{background:var(--accent-warm);color:var(--surface);}
+  
+  /* Pricing meta styling inside banners */
+  .cta-pricing {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .cta-banner--alt .price-pill {
+    background: rgba(251,251,248,.14);
+    border-color: rgba(251,251,248,.28);
+    color: var(--surface);
+  }
+
+  /* Membership / newsletter: price at top right with billing toggle */
+  .cta-banner--priced{position:relative;}
+  .cta-banner--priced .cta-pricing{
+    position:absolute;top:43px;right:46px;margin-top:0;
+    flex-direction:row;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:nowrap;
+  }
+  .billing-toggle{
+    display:inline-flex;padding:3px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(63,93,70,.06);
+  }
+  .billing-toggle button{
+    font:inherit;font-size:.78rem;font-weight:600;letter-spacing:.01em;
+    padding:5px 12px;border:none;border-radius:999px;background:transparent;
+    color:var(--accent-dark);cursor:pointer;transition:background .2s ease,color .2s ease;
+  }
+  .billing-toggle button.active{background:var(--accent);color:var(--surface);}
+  .cta-banner--alt .billing-toggle{border-color:rgba(251,251,248,.28);background:rgba(251,251,248,.12);}
+  .cta-banner--alt .billing-toggle button{color:var(--surface);}
+  .cta-banner--alt .billing-toggle button.active{background:var(--surface);color:var(--accent);}
+  .cta-pricing .price-pill[hidden]{display:none;}
+  .cta-perks{list-style:none;margin:10px 0 0;padding:0;max-width:520px;}
+  .cta-perks li{margin-bottom:6px;}
+  .cta-banner--alt .cta-perks{color:rgba(251,251,248,.86);}
+  .cta-banner:not(.cta-banner--alt) .cta-perks{color:var(--muted);}
+  .cta-intro{margin-bottom:10px;}
+  @media (max-width:820px){
+    .cta-banner--priced .cta-pricing{position:static;justify-content:flex-start;flex-wrap:wrap;margin-top:22px;margin-bottom:22px;}
+  }
 
   /* Credentials (Training & Education) */
   .cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -444,7 +486,7 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">Meet your coach</p>
-        <h2>About</h2>
+        <h2>About Abdullah</h2>
       </div>
 
       <article class="about-card reveal">
@@ -536,10 +578,25 @@
 
   <section id="mind-club" class="section">
     <div class="container">
-      <div class="cta-banner cta-banner--alt cta-banner--standalone reveal">
+      <div class="cta-banner cta-banner--alt cta-banner--standalone cta-banner--priced reveal">
         <div class="cta-text">
           <h3>Mind Club Membership</h3>
-          <p>Sign up today to secure your Mind Club membership and gain lifetime access to connect with Mind Coach Abdullah.</p>
+          <p>Sign up today to secure your Mind Club membership and gain lifetime access to connect with Mind Coach Abdullah. Join now and get your Mind Club Membership.</p>
+
+          <p class="about-question">What are you missing by not being a member ?</p>
+          <ul class="cta-perks">
+            <li>➤ Exclusive 1 : 1 session on every month!</li>
+            <li>➤ Fully customized mind mapping strategy, just for you!</li>
+            <li>➤ Emergency mental support on your critical life crisis moments!</li>
+          </ul>
+          <div class="cta-pricing">
+            <div class="billing-toggle" role="group" aria-label="Billing period">
+              <button type="button" class="active" data-period="monthly">Monthly</button>
+              <button type="button" data-period="yearly">Yearly</button>
+            </div>
+            <span class="price-pill" data-period="monthly" data-price-bdt="৳ 6,00,000" data-price-usd="$ 5,000">$ 5,000</span>
+            <span class="price-pill" data-period="yearly" data-price-bdt="৳ 70,00,000" data-price-usd="$ 60,000" hidden>$ 60,000</span>
+          </div>
         </div>
         <a class="btn btn-primary" href="https://forms.gle/Z5UvwhDEbEUp1G6v9" target="_blank" rel="noopener">Join Now</a>
       </div>
@@ -571,6 +628,33 @@
           <h3>Primeasia University</h3>
           <p class="cred-meta">Bachelor's in Computer Science and Engineering</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter" class="section">
+    <div class="container">
+      <div class="cta-banner cta-banner--standalone cta-banner--priced reveal">
+        <div class="cta-text">
+          <h3>Monthly Mind Newsletter</h3>
+          <p>Subscribe to your mindfulness mind newsletter from your mind coach Abdullah! Subscribe now and get your Special Mind Newsletter.</p>
+
+          <p class="about-question">What are you missing by not being a subscriber ?</p>
+          <ul class="cta-perks">
+            <li>➤ Mindfulness stories.</li>
+            <li>➤ Practical life experiences.</li>
+            <li>➤ Emotional healing tips and tricks.</li>
+          </ul>
+          <div class="cta-pricing">
+            <div class="billing-toggle" role="group" aria-label="Billing period">
+              <button type="button" class="active" data-period="monthly">Monthly</button>
+              <button type="button" data-period="yearly">Yearly</button>
+            </div>
+            <span class="price-pill" data-period="monthly" data-price-bdt="৳ 60,000" data-price-usd="$ 500">$ 500</span>
+            <span class="price-pill" data-period="yearly" data-price-bdt="৳ 7,00,000" data-price-usd="$ 6,000" hidden>$ 6,000</span>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="https://forms.gle/6bwDJDJWw8HUZL9n9" target="_blank" rel="noopener">Subscribe Now</a>
       </div>
     </div>
   </section>
@@ -788,14 +872,6 @@
         </div>
         <button class="carousel-btn next" id="nextBtn" aria-label="Next testimonial">›</button>
       </div>
-
-      <div class="cta-banner reveal">
-        <div class="cta-text">
-          <h3>Monthly Mind Newsletter</h3>
-          <p>Subscribe to your mindfulness mind newsletter from your mind coach Abdullah!</p>
-        </div>
-        <a class="btn btn-primary" href="https://forms.gle/6bwDJDJWw8HUZL9n9" target="_blank" rel="noopener">Subscribe Now</a>
-      </div>
     </div>
   </section>
 
@@ -836,6 +912,19 @@
       el.textContent = isDhaka ? el.getAttribute('data-price-bdt') : el.getAttribute('data-price-usd');
     });
   })();
+
+  // Monthly / Yearly billing toggle
+  document.querySelectorAll('.cta-pricing').forEach(function (box) {
+    var btns = box.querySelectorAll('.billing-toggle button');
+    var pills = box.querySelectorAll('.price-pill');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var period = btn.getAttribute('data-period');
+        btns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        pills.forEach(function (p) { p.hidden = p.getAttribute('data-period') !== period; });
+      });
+    });
+  });
 
   // Mobile nav toggle
   var nav = document.querySelector('.nav');
